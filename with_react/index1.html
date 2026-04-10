@@ -268,15 +268,12 @@
 <body>
     <div id="root"></div>
 
-    <!-- React + ReactDOM (for rendering only) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-        // ─────────────────────────────────────────────
-        // DATA  (plain JS — no state needed)
-        // ─────────────────────────────────────────────
+       
         const items = {
             Fruits: [
                 { name: "Apple",       icon: "🍎", price: 1.5, category: "Fruits" },
@@ -323,20 +320,16 @@
             { name: "Cheesy Veg Mix", needs: ["Onion", "Carrot", "Cheese"] }
         ];
 
-        // ─────────────────────────────────────────────
-        // STATE  (plain JS objects — single source of truth)
-        // ─────────────────────────────────────────────
+        
         const state = {
-            view:     "shop",   // "shop" | "cart" | "checkout" | "recipes"
+            view:     "shop",   
             category: "All",
             search:   "",
             sort:     "default",
-            cart:     {}        // { itemName: quantity }
+            cart:     {}      
         };
 
-        // ─────────────────────────────────────────────
-        // STATE MUTATORS  (plain JS functions)
-        // ─────────────────────────────────────────────
+       
         function openFullMenu() {
             state.view     = "shop";
             state.category = "All";
@@ -381,9 +374,7 @@
             render();
         }
 
-        // ─────────────────────────────────────────────
-        // DERIVED VALUES  (plain JS functions, read state)
-        // ─────────────────────────────────────────────
+       
         function getCartNames()   { return Object.keys(state.cart); }
         function getUniqueCount() { return getCartNames().length; }
         function getTotalCount()  {
@@ -418,9 +409,7 @@
             return state.category;
         }
 
-        // ─────────────────────────────────────────────
-        // REACT — rendering only, reads from plain state
-        // ─────────────────────────────────────────────
+       
         function renderMainCards() {
             const { view, cart } = state;
             const cartNames = getCartNames();
@@ -492,7 +481,7 @@
                 );
             }
 
-            // recipes view
+           
             const recipeCards = getRecipeCards();
             if (recipeCards.length === 0) return <p>No recipes found.</p>;
             return recipeCards.map(recipe => (
@@ -516,7 +505,7 @@
                     </div>
 
                     <div className="container">
-                        {/* ── LEFT: Menu ── */}
+                        {}
                         <div className="box">
                             <h2 className="menu-title" onClick={openFullMenu}>Menu</h2>
                             <div className="menu">
@@ -541,7 +530,7 @@
                             </div>
                         </div>
 
-                        {/* ── CENTRE: Content ── */}
+                        {}
                         <div className="box">
                             <h1>{getPageTitle()}</h1>
 
@@ -567,7 +556,7 @@
                             </div>
                         </div>
 
-                        {/* ── RIGHT: Profile ── */}
+                        {}
                         <div className="box">
                             <div className="profile">
                                 <h2>User Profile</h2>
@@ -582,16 +571,14 @@
             );
         }
 
-        // ─────────────────────────────────────────────
-        // RENDER LOOP  — React is only the view layer
-        // ─────────────────────────────────────────────
+        
         const root = ReactDOM.createRoot(document.getElementById("root"));
 
         function render() {
             root.render(<App />);
         }
 
-        render(); // initial paint
+        render(); 
     </script>
 </body>
 </html>
