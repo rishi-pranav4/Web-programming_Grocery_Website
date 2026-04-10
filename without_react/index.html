@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Urban Pantry</title>
-
 <style>
+/*CSS Styling*/
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 
 body { background: #f6efe6; color: #2b2118; }
@@ -273,7 +273,7 @@ Dairy: [
 };
 
 const allItems = Object.values(items).flat();
-
+// recipes
 const recipes = [
 { name:"Fruit Salad", needs:["Apple","Banana","Orange"] },
 { name:"Mashed Potato", needs:["Potato","Milk","Butter"] },
@@ -285,7 +285,7 @@ const recipes = [
 {name:"Bacon Egg and Cheese",needs:["Bacon","Egg","Cheese"]}
 ];
 
-// STATE
+// Initial State of the page
 const state = {
 
 view:"login",
@@ -459,7 +459,7 @@ ${["Fruits","Vegetables","Dairy","Meat&Eggs"].map(c=>
 </div>
 `;
 }
-
+// rendering the whole page 
 render();
 
 </script>
